@@ -11,10 +11,10 @@ bot = commands.Bot(command_prefix ="$", intents = discord.Intents.all())
 
 @bot.event
 async def on_ready():
-    for FileName in os.listdir('./cmds'):
-        if FileName.endswith('.py'):
-            await bot.load_extension(f'cmds.{FileName[:-3]}')
-    channel = bot.get_channel(1236562259405443145)
+    for FileName in os.listdir('./cmds'):    #自cmd資料夾中提取檔案名稱
+        if FileName.endswith('.py'):    #若附檔名為.py
+            await bot.load_extension(f'cmds.{FileName[:-3]}')    #加載該檔案
+    channel = bot.get_channel(1236562259405443145)    #進入頻道
     if channel:
         await channel.send('轟隆一聲巨響，Bot閃亮登場✧*｡٩(ˊωˋ*)و✧*')
     print(">>Bot is Online<<")
